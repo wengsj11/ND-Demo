@@ -70,7 +70,6 @@ img {
     color: #eff1f1;
     font-size: 16px;
     text-align: left;
-    flex: 1 0 265;
 }
 .sidebar li{
     line-height: 58px;
@@ -117,7 +116,7 @@ img {
 .sidebar .sidebar-list .active a{
     border-left: 4px solid #168df9; 
 }
-.bgbtn02 img{     
+.sidebar-item img{
     margin-bottom: -3px;     
     margin-right: 10px;     
 }
