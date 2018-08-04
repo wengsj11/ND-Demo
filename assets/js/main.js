@@ -147,7 +147,12 @@ next.onclick = function () {
 
 
 //搜索功能
-// TODO
+let search_btn = document.getElementById("content-search");
+search_btn.onclick = function () {
+    // TODO
+    //暂时想到的方法是先用正则对数据进行过滤，然后再调用showdata对数据渲染。
+
+}
 
 //新建作品modal
 let newButton = document.getElementById("new-btn");
@@ -237,9 +242,9 @@ function deleteNameInput(obj){
     let parent = obj.parentNode;
     let grandparent = obj.parentNode.parentNode;
     grandparent.removeChild(parent);
-    //删除input值
+    //TODO 删除input值
     let value = obj.parentNode.innerText;
-    // TODO
+
 }
 //表单提交
 let modal_form_submit = document.getElementById("modal-form-submit");
