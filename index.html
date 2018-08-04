@@ -4,341 +4,199 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/modal.css" rel="stylesheet">
+    <link href="assets/css/reset.css" rel="stylesheet">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>ndDemo</title>
 </head>
 
 
 <body>
-    <div class='container'>
-        <aside class="sidebar" style="background:#3d485d;">
-            <img src="assets/img/101logo.png" class="sidebar-img" />
-            <div class="sidebar-header">课程列表</div>
-            <ul class="sidebar-list">
-                <li><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>全部课程</a></li>
-                <li><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程一：静夜思</a></li>
-                <li><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程二：红军长征</a></li>
-                <li class="active"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程三：活字印刷术</a></li>
-                <li><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程四：郑和下西洋</a></li>
-                <li><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程五：梦想之家</a></li>
+<div class='container'>
+    <!-- 侧边导航栏 -->
+    <aside class="sidebar" style="background:#3d485d;">
+        <img src="assets/img/101logo.png" class="sidebar-img" />
+        <div class="sidebar-header">课程列表</div>
+        <ul class="sidebar-list">
+            <li id="work"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>全部课程</a></li>
+            <li id="work1"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程一：静夜思</a></li>
+            <li id="work2"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程二：红军长征</a></li>
+            <li id="work3"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程三：活字印刷术</a></li>
+            <li id="work4"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程四：郑和下西洋</a></li>
+            <li id="work5"><a class="sidebar-item"><img src="assets/img/icon_class_nor.png"/>课程五：梦想之家</a></li>
 
-            </ul>
-        </aside>
-        <div class="main">
-            <header class="header">
-                <div class="header-left">
-                    <div class="user">
-                        <img class="name" src="assets/img/icon_user.png">
-                        <span>用户：王小明</span>
-                    </div>
-                    <div class="id">
-                        <img class="name" src="assets/img/icon_id.png">
-                        <span>身份: 学生</span>
-                    </div>
-                    <div class="btn-set">
-                        <a id="set"><img src="assets/img/btn_set_nor.png" /></a>
-                    </div>
+        </ul>
+    </aside>
+    <!-- 页面主体 -->
+    <main class="main">
+        <!-- 页面头部 -->
+        <header class="header">
+            <div class="header-left">
+                <div class="user">
+                    <img class="name" src="assets/img/icon_user.png">
+                    <span>用户：王小明</span>
                 </div>
-            </header>
-            <nav class="nav">
-                <div class="nav-left">
-                    <div class="work-item active">
-                        <a href="#">我的作品</a>
-                    </div>
-                    <div class="work-item">
-                        <a href="#">班级作品</a>
-                    </div>
+                <div class="id">
+                    <img class="name" src="assets/img/icon_id.png">
+                    <span>身份: 学生</span>
                 </div>
-                <div class="right-btn">
-                    <a href="javascript:void(0);" id="sumbit-btn"><img src="assets/img/btn_submit.png"/></a>
-                    <a href="javascript:void(0);" id="new-btn"><img src="assets/img/btn_new.png"/></a>
+                <div class="btn-set">
+                    <a id="set"><img src="assets/img/btn_set_nor.png" /></a>
                 </div>
-            </nav>
-            <div class="content">
-                    <div class="search">
-                        <div class="search-input">
-                            <input type="text" placeholder=" 搜索资源..." class="input-text">
-                            <img src="assets/img/icon_search.png" alt="">
-                        </div>
-                        <div class="search-confirm">
-                            <a><img src="assets/img/btn_search_nor.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="items">
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item1.png" title="李冉、涂佳佳、李婷、张婷、张三、李四、王小明、张三丰黎明" style="width:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/edit.png"/><p>编辑</p>   
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/play.png"/><p>播放</p>  
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item2.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/edit.png"/><p>编辑</p>   
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/play.png"/><p>播放</p>  
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item1.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/edit.png"/><p>编辑</p>   
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/play.png"/><p>播放</p>  
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item2.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/edit.png"/><p>编辑</p>   
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/play.png"/><p>播放</p>  
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">     
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
+            </div>
+        </header>
+        <!-- tab标签页 -->
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="work-item active" id="my">
+                    <a href="#">我的作品</a>
+                </div>
+                <div class="work-item" id="class">
+                    <a href="#">班级作品</a>
+                </div>
+            </div>
+            <div class="right-btn">
+                <a href="javascript:void(0);" id="submit-btn"><img src="assets/img/btn_submit.png"/></a>
+                <a href="javascript:void(0);" id="new-btn"><img src="assets/img/btn_new.png"/></a>
+            </div>
+        </nav>
 
-                    </div>
-                    <div class="items">
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item1.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/edit.png"/><p>编辑</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/play.png"/><p>播放</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item2.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/edit.png"/><p>编辑</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/play.png"/><p>播放</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item1.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/edit.png"/><p>编辑</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/play.png"/><p>播放</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-                        <div class="item">
-                            <div class="item-wrap">
-                                <img src="assets/img/item2.png" style="height:auto;max-width:100%;" />
-                                <div class="item-btn">
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/edit.png"/><p>编辑</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/play.png"/><p>播放</p>
-                                    </a>
-                                    </div>
-                                    <div class="item-btn-li">
-                                        <a href="" class="">
-                                        <img src="assets/img/delete.png"/><p>删除</p>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="title">郑和下西洋</span>
-                        </div>
-
-                    </div>
-                    <div class="page">
-                        <a href="#" class="page-box-arr">&lt;</a>
-                        <a href="#" class="page-box select">1</a>
-                        <a href="#" class="page-box">2</a>
-                        <a href="#" class="page-box">3</a>
-                        <a href="#" class="page-box">4</a>
-                        <a href="#" class="page-box">5</a>
-                        <p style="margin:0 20px;">...</p>
-                        <a href="#" class="page-box">100</a>
-                        <a href="#" class="page-box-arr">&gt;</a>
-                    </div>
+        <!-- 作品内容 -->
+        <div class="content" style="display: none;">
+            <!-- 搜索框 -->
+            <div class="search">
+                <div class="search-input">
+                    <input type="text" placeholder=" 搜索资源..." class="input-text">
+                    <img src="assets/img/icon_search.png" alt="">
                 </div>
-            <form action="" method="get" name="submitForm">
-                <div class="modal" style="display: none;">
-                    <div class="modal-title">新建作品<a href="javascript:void(0);" id="modal-close"><img src="assets/img/btn_close_nor.png"/></a></div>
-                    <div class="modal-content">
-                        <div class="modal-content-input">
-                            <label for="res">资源名称</label>
-                            <input type="text" name="res" id="res" class="input-text">
-                        </div>
-                        <div class="modal-content-input">
-                            <label for="author">作者</label>
-                            <textarea name="author" id="author" class="input-medium" contentEditable="true"></textarea>
-                            <a href="javascript:void(0);" id="btn_add">
-                                <img src="assets/img/btn_add.png" style="float:left; padding-top: 63px; padding-left: 10px;"/>
-                            </a>
-                        </div>
-                        <div class="modal-content-input">
-                            <label>配图</label>
-                            <input type="text" name="pic" class="input-text" placeholder="点击上传图片">
-                        </div>
-                        <div class="modal-content-input">
-                            <label for="intro">简介</label>
-                            <textarea name="intro" id="intro" class="input-large"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-btn">
-                        <input type="image" src="assets/img/btn_check_submit.png">
-                    </div>
+                <div class="search-confirm">
+                    <a><img src="assets/img/btn_search_nor.png" alt=""></a>
                 </div>
+            </div>
+            <div class="items">
 
-            </form>
-            <form name="getNameForm" action="">
-
-                <div class="modal modal-side" style="display:none;">
-                    <div class="modal-title">班级成员<a href="javascript:void(0);" id="modal-side-close"><img src="assets/img/btn_close_nor.png"/></a></div>
-                    <div class="modal-content">
-                        <div class="select1">
-                            <input type="text" name="author" class="input-small select-input" placeholder="搜索人名">
-                            <select class="select-style" multiple name="list1" ondblclick="moveOption(document.getNameForm.list1, document.getNameForm.list2)">
-                                <option value="李明">李明</option> 
-                                <option value="张三疯">张三疯</option> 
-                                <option value="斯琴高娃">斯琴高娃</option> 
-                                <option value="周杰伦">周杰伦</option> 
-                                <option value="吴克群">吴克群</option> 
-                                <option value="胡建华">胡建华</option> 
-                                <option value="李连杰">李连杰</option> 
-                                <option value="王宝强">王宝强</option> 
-                                <option value="詹姆斯">詹姆斯</option> 
-                                <option value="妇炎洁">妇炎洁</option> 
-                                <option value="孙楠">孙楠</option> 
-                                <option value="姚明">姚明</option> 
-                                <option value="斯瓦辛格">斯瓦辛格</option> 
-                            </select> 
-                        </div>
-                        <div>
-                            <a href="javascript:void(0);" id="addName"><img src="assets/img/btn_add_hov.png" style="margin-bottom:10px; display:block;"></a>
-                            <a href="javascript:void(0);" id="deleteName"><img src="assets/img/btn_delete_nor.png"></a>
-                        </div>
-                        <select class="select-style" multiple name="list2" ondblclick="moveOption(document.getNameForm.list2, document.getNameForm.list1)">
-                            <option value="hehe">hehe</option>
-                        </select> 
-                    </div>
-                    <div class="modal-btn">
-                        <a href="javascript:void(0);" id="getNames"><img type="image" src="assets/img/btn_submit_nor.png"></a>
-                    </div>
-                </div>
-            </form>
+            </div>
+            <!-- 底部分页 -->
+            <div class="page">
+                <a href="#" class="page-box-arr" id="page-pre">&lt;</a>
+                <a href="#" class="page-box select">1</a>
+                <a href="#" class="page-box">2</a>
+                <a href="#" class="page-box">3</a>
+                <a href="#" class="page-box">4</a>
+                <a href="#" class="page-box">5</a>
+                <p style="margin:0 20px;">...</p>
+                <a href="#" class="page-box">100</a>
+                <a href="#" class="page-box-arr" id="page-next">&gt;</a>
+            </div>
         </div>
-    
+        <div class="content-none" style="display: none;">
+            <img src="assets/img/none.png">
+        </div>
+        <!-- 新建作品弹窗 -->
+        <form action="" method="get" name="submitForm">
+            <div class="modal" style="display: none;">
+                <div class="modal-title">新建作品<a href="javascript:void(0);" id="modal-close"><img src="assets/img/btn_close_nor.png"/></a></div>
+                <div class="modal-content">
+                    <div class="modal-content-input">
+                        <label for="form-res">资源名称</label>
+                        <input type="text" name="res" id="form-res" class="input-text">
+                    </div>
+                    <div class="modal-content-input">
+                        <label for="form-author">作者</label>
+                        <div name="author" id="form-author" class="input-medium" ></div>
+                        <input type="hidden" name="author" id="input-author">
+                        <a href="javascript:void(0);" id="btn_add">
+                            <img src="assets/img/btn_add.png" style="float:left; padding-top: 63px; padding-left: 10px;"/>
+                        </a>
+                    </div>
+                    <div class="modal-content-input">
+                        <label for="form-pic">配图</label>
+                        <input type="text" name="pic" id="form-pic" class="input-text" placeholder="点击上传图片">
+                    </div>
+                    <div class="modal-content-input">
+                        <label for="form-intro">简介</label>
+                        <textarea name="intro" id="form-intro" class="input-large"></textarea>
+                    </div>
+                </div>
+                <div class="modal-btn">
+                    <a href="javascript:void(0)"; id="modal-form-submit" ><img src="assets/img/btn_check_submit.png"></a>
+                </div>
+            </div>
+
+        </form>
+        <form name="getNameForm" action="">
+
+            <div class="modal modal-side" style="display:none;">
+                <div class="modal-title">班级成员<a href="javascript:void(0);" id="modal-side-close"><img src="assets/img/btn_close_nor.png"/></a></div>
+                <div class="modal-content">
+                    <div class="select1">
+                        <input type="text" name="author" class="input-small select-input" placeholder="搜索人名">
+                        <select class="select-style" multiple name="list1" ondblclick="moveOption(document.getNameForm.list1, document.getNameForm.list2)">
+                            <option value="李明">李明</option>
+                            <option value="张三疯">张三疯</option>
+                            <option value="斯琴高娃">斯琴高娃</option>
+                            <option value="周杰伦">周杰伦</option>
+                            <option value="吴克群">吴克群</option>
+                            <option value="胡建华">胡建华</option>
+                            <option value="李连杰">李连杰</option>
+                            <option value="王宝强">王宝强</option>
+                            <option value="詹姆斯">詹姆斯</option>
+                            <option value="妇炎洁">妇炎洁</option>
+                            <option value="孙楠">孙楠</option>
+                            <option value="姚明">姚明</option>
+                            <option value="斯瓦辛格">斯瓦辛格</option>
+                        </select>
+                    </div>
+                    <div>
+                        <a href="javascript:void(0);" id="addName"><img src="assets/img/btn_add_hov.png" style="margin-bottom:10px; display:block;"></a>
+                        <a href="javascript:void(0);" id="deleteName"><img src="assets/img/btn_delete_nor.png"></a>
+                    </div>
+                    <select class="select-style" multiple name="list2" ondblclick="moveOption(document.getNameForm.list2, document.getNameForm.list1)">
+
+                    </select>
+                </div>
+                <div class="modal-btn">
+                    <a href="javascript:void(0);" id="getNames"><img type="image" src="assets/img/btn_submit_nor.png"></a>
+                </div>
+            </div>
+        </form>
+    </main>
+
 
 </div>
-<script type="text/javascript" src="assets/js/main.js"></script>
+<script type="text/javascript" src="assets/js/main.js" async></script>
 <noscript>你的浏览器不支持JacaScript！请更换浏览器访问</noscript>
+<!-- 作品html模板 -->
+<script type="text/html" id="item-tpl">
+    <div class="item">
+        <div class="item-wrap">
+            <img src="{{img}}" style="height:auto;max-width:100%;" />
+            <div class="item-title">
+                <span class="item-title-author">{{author}}</span>
+                <span class="item-title-time">{{time}}</span>
+            </div>
 
+            <div class="item-btn">
+                <div class="item-btn-li">
+                    <a href="" class="">
+                        <img src="assets/img/edit.png"/><p>编辑</p>
+                    </a>
+                </div>
+                <div class="item-btn-li">
+                    <a href="" class="">
+                        <img src="assets/img/play.png"/><p>播放</p>
+                    </a>
+                </div>
+                <div class="item-btn-li">
+                    <a href="" class="">
+                        <img src="assets/img/delete.png"/><p>删除</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <span class="title">{{title}}</span>
+    </div>
+</script>
 </body>
 </html>
