@@ -6,6 +6,8 @@ let class_work = [];
 //当前分页
 const pageSize = 8;
 let pageNum = 1;
+let totalPage;  //页数
+let initDageDisplay = null;
 
 let contentNone = document.getElementsByClassName("content-none")[0];
 let content = document.getElementsByClassName("content")[0];
@@ -26,7 +28,7 @@ function classifyData(works) {
 }
 
 //根据当前侧边栏, 标签页，分页展示数据
-function showData(tab, pageSize, pageNum) {
+function showData(tab_id, pageSize, pageNum) {
 
     let side_li = document.getElementsByClassName("sidebar-list")[0].getElementsByClassName("active")[0];
     let works = workdata[side_li.id];
@@ -43,7 +45,10 @@ function showData(tab, pageSize, pageNum) {
     // console.info(works);
     // 对json数据进行分类
     classifyData(works);
-
+    //分页样式
+    if(initDageDisplay ===null){
+        initDageDisplay = pageDisplay();
+    }
     let start = (pageNum - 1) * pageSize;
     let end = pageSize + start;
 
@@ -52,7 +57,7 @@ function showData(tab, pageSize, pageNum) {
     //清除模板html内容
     items.innerHTML = "";
 
-    if(tab === "my"){
+    if(tab_id === "my"){
 
         for (let i = start; i < end && i< my_work.length; i++) {
             let html = tpl;
@@ -62,18 +67,31 @@ function showData(tab, pageSize, pageNum) {
             html = html.replace("{{time}}", my_work[i].time);
             items.innerHTML += html;
         }
-    } else if(tab === "class") {
+
+    } else if(tab_id === "class") {
 
         for (let i = start; i < end && i<class_work.length; i++) {
             let html = tpl;
             html = html.replace("{{title}}", class_work[i].workTitle);
             html = html.replace("{{img}}", class_work[i].pic);
-            html = html.replace("{{author}}", my_work[i].author);
-            html = html.replace("{{time}}", my_work[i].time);
+            html = html.replace("{{author}}", class_work[i].author);
+            html = html.replace("{{time}}", class_work[i].time);
             items.innerHTML += html;
         }
     }
+    let pre = document.getElementById("page-pre");
+    let next = document.getElementById("page-next");
+    pre.style.display = 'block';
+    next.style.display = 'block';
+    //判断当前是否可以翻页
+    if(pageNum === 1){
+        pre.style.display = 'none';
+    }
+    if(pageNum === totalPage){
+        next.style.display = 'none';
+    }
 }
+
 
 //侧边栏切换、
 let list = document.getElementsByClassName("sidebar-list")[0].getElementsByTagName("li");
@@ -84,10 +102,12 @@ for (let i = 0; i < list.length; i++) {
             list[i].classList.remove("active");
         }
         this.classList.add('active');
-
+        //展示数据
+        showData("my", pageSize, 1);
+        //刷新分页样式
+        initDageDisplay = pageDisplay();
         // 直接调用分页刷新数据，点击第一页
-        // 会根据当前侧边栏和tab展示数据
-        document.getElementsByClassName("page-box")[0].click();
+        document.getElementById("1").click();
     }
 }
 
@@ -100,6 +120,8 @@ for (let i = 0; i < items.length; i++) {
             items[i].classList.remove("active");
         }
         this.classList.add('active');
+        //刷新分页样式
+        initDageDisplay = pageDisplay();
 
         //展示数据
         showData(this.id, pageSize, 1);
@@ -107,43 +129,56 @@ for (let i = 0; i < items.length; i++) {
 }
 
 //分页功能、
-let boxs = document.getElementsByClassName("page-box");
-for (let i = 0; i < boxs.length; i++) {
-    let box = boxs[i];
-    box.onclick = function () {
-        for (let i = 0; i < boxs.length; i++) {
-            boxs[i].classList.remove("select");
-        }
-        this.classList.add('select');
-
-        pageNum = this.innerHTML;
-        // 当前标签页
-        let tab = document.getElementsByClassName("nav-left")[0].getElementsByClassName("active")[0];
-        //展示数据
-        showData(tab.id, pageSize, pageNum);
+function pageClick(box) {
+    let boxs = document.getElementsByClassName("page-box");
+    for (let i = 0; i < boxs.length; i++) {
+        boxs[i].classList.remove("select");
     }
+    box.classList.add('select');
+
+    pageNum = parseInt(box.innerHTML);
+    // 当前标签页
+    let tab = document.getElementsByClassName("nav-left")[0].getElementsByClassName("active")[0];
+    //展示数据
+    showData(tab.id, pageSize, pageNum);
 }
 
 //翻页
-let pre = document.getElementById("page-pre");
-let next = document.getElementById("page-next");
-pre.onclick = function () {
+function pre() {
     if(pageNum-1 > 0){
         pageNum--;
     }
     //展示数据
-    showData(tab.id, pageSize, pageNum);
-};
-next.onclick = function () {
+    document.getElementById(pageNum).click();
+}
+function next() {
     if(pageNum+1 <= 100){
         pageNum++;
     }
-    //展示数据
-    showData(tab.id, pageSize, pageNum);
-};
+    document.getElementById(pageNum).click();
+}
 
 //分页样式逻辑
-// TODO
+function pageDisplay(){
+    let tab = document.getElementsByClassName("nav-left")[0].getElementsByClassName("active")[0];
+    if(tab.id === "my"){
+        totalPage = my_work.length % pageSize === 0 ? my_work.length / pageSize : parseInt(my_work.length / pageSize +1);
+    }else if(tab.id === "class"){
+        totalPage = class_work.length % pageSize === 0 ? class_work.length / pageSize : parseInt(class_work.length / pageSize +1);
+    }
+    if(totalPage === 0){
+        totalPage = 1;
+    }
+
+    let page_html = "<a href='#' class='page-box-arr' id='page-pre' onclick='pre();'>&lt;</a><a href='#' class='page-box select' id='1' onclick='pageClick(this)'>1</a>";
+
+    for (let i = 1; i < totalPage; i++) {
+        page_html += "<a href='#' class='page-box' id='"+(i+1)+"'onclick='pageClick(this)'>"+ (i+1) +"</a>";
+    }
+    page_html += "<a href='#' class='page-box-arr' id='page-next' onclick='next();'>&gt;</a>";
+
+    document.getElementsByClassName("page")[0].innerHTML = page_html;
+}
 
 
 //搜索功能
@@ -152,7 +187,7 @@ search_btn.onclick = function () {
     // TODO
     //暂时想到的方法是先用正则对数据进行过滤，然后再调用showdata对数据渲染。
 
-}
+};
 
 //新建作品modal
 let newButton = document.getElementById("new-btn");
@@ -292,7 +327,7 @@ function validate_required(field,alerttxt)
 {
     with (field)
     {
-        if (value == null || value==""){
+        if (value == null || value===""){
             alert(alerttxt);
             return false;
         }
